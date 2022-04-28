@@ -1,13 +1,14 @@
 <template>
 	<view>
 		<view class="search-box">
-		  <u-search @change="input" v-model="kw" placeholder="请输入搜索内容" :focus="true" :showAction="false"></u-search>
+		  <!-- <u-search @change="input" v-model="kw" placeholder="请输入搜索内容" :focus="true" :showAction="false"></u-search> -->
+		  <uni-search-bar @input="input" focus :radius="100" cancelButton="none"></uni-search-bar>
 		</view>
 		<!-- 搜索建议列表 -->
 		<view class="sugg-list" v-if="searchResults.length !== 0">
 		  <view class="sugg-item" v-for="(item, i) in searchResults" :key="i" @click="gotoDetail(item.goods_id)">
 		    <view class="goods-name">{{item.goods_name}}</view>
-		    <u-icon name="arrow-right" size="16"></u-icon>
+		    <uni-icons type="arrowright" size="16"></uni-icons>
 		  </view>
 		</view>
 		<!-- 搜索历史 -->
@@ -15,11 +16,11 @@
 		  <!-- 标题区域 -->
 		  <view class="history-title">
 		    <text>搜索历史</text>
-		    <u-icon name="trash" size="17" @click="cleanHistory"></u-icon>
+		    <uni-icons type="trash" size="17" @click="cleanHistory"></uni-icons>
 		  </view>
 		  <!-- 列表区域 -->
 		  <view class="history-list">
-		    <u-tag :text="item" color="#000" bgColor="#f8f8f8" borderColor="#f8f8f8" v-for="(item, i) in historys" :key="i" @click="gotoGoodsList(item)"></u-tag>
+		    <uni-tag :text="item" :inverted="true" v-for="(item, i) in historys" :key="i" @click="gotoGoodsList(item)"></uni-tag>
 		  </view>
 		</view>
 
@@ -100,9 +101,8 @@
   top: 0;
   z-index: 999;
 }
-.u-search {
+.uni-searchbar {
   background-color: #c00000;
-  padding: 16rpx;
 }
 .sugg-list {
   padding: 0 5px;
@@ -142,7 +142,7 @@
     display: flex;
     flex-wrap: wrap;
 
-    .u-tag-wrapper {
+    .uni-tag {
       margin-top: 5px;
       margin-right: 5px;
     }

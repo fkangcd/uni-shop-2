@@ -2,7 +2,7 @@
 	<view class="my-search-container" :style="{'background-color': bgcolor}">
 	    <!-- 使用 view 组件模拟 input 输入框的样式 -->
 	    <view class="my-search-box" :style="{'border-radius': radius + 'px'}" @click="searchBoxHandler">
-	      <u-icon name="search" size="17"></u-icon>
+	      <uni-icons type="search" size="17"></uni-icons>
 	      <text class="placeholder">搜索</text>
 	    </view>
 	  </view>
